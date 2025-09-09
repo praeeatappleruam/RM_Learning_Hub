@@ -1,0 +1,385 @@
+{
+  "productSpec": {
+    "modules": {
+      "onboarding": {
+        "responsibilities": ["RM profile setup", "Role-based access", "Initial skill assessment"],
+        "inputs": ["Employee ID", "Department", "Experience level"],
+        "outputs": ["Skill baseline", "Learning path", "Access permissions"],
+        "events": ["onboarding.completed", "baseline.assessed"],
+        "persistence": "rm_profiles, skill_assessments",
+        "apis": [
+          {
+            "path": "/api/v1/onboarding/profile",
+            "method": "POST",
+            "request": {"employeeId": "RM001", "department": "Wealth", "experience": "2-5years"},
+            "response": {"profileId": "uuid", "skillLevel": "intermediate", "learningPath": ["protection", "health"]}
+          }
+        ],
+        "awsServices": ["Cognito", "DynamoDB", "Lambda"]
+      },
+      "knowledgeHub": {
+        "responsibilities": ["Product knowledge base", "Regulatory updates", "Best practices"],
+        "inputs": ["Product updates", "Regulatory changes", "Search queries"],
+        "outputs": ["Structured content", "Search results", "Compliance alerts"],
+        "events": ["content.updated", "compliance.alert"],
+        "persistence": "knowledge_base, regulatory_updates",
+        "apis": [
+          {
+            "path": "/api/v1/knowledge/search",
+            "method": "GET",
+            "request": {"query": "ULIP suitability", "category": "investment"},
+            "response": {"results": [{"title": "ULIP Guidelines", "content": "...", "compliance": true}]}
+          }
+        ],
+        "awsServices": ["OpenSearch", "S3", "Bedrock"]
+      },
+      "skillSimulationLab": {
+        "responsibilities": ["Role-play scenarios", "Customer interaction simulation", "Skill assessment"],
+        "inputs": ["Scenario parameters", "RM responses", "Audio/video streams"],
+        "outputs": ["Performance scores", "Feedback", "Skill gaps"],
+        "events": ["simulation.started", "simulation.completed", "score.calculated"],
+        "persistence": "simulations, performance_data, transcripts",
+        "apis": [
+          {
+            "path": "/api/v1/simulation/start",
+            "method": "POST",
+            "request": {"scenarioId": "protection-001", "rmId": "RM001", "difficulty": "medium"},
+            "response": {"sessionId": "uuid", "customerPersona": {...}, "objectives": [...]}
+          }
+        ],
+        "awsServices": ["Transcribe", "Polly", "Rekognition", "Bedrock", "ECS"]
+      },
+      "recommendationAssistant": {
+        "responsibilities": ["Product recommendations", "Suitability analysis", "Explainable AI"],
+        "inputs": ["Customer profile", "Risk appetite", "Financial goals"],
+        "outputs": ["Ranked products", "Suitability scores", "Explanations"],
+        "events": ["recommendation.generated", "suitability.assessed"],
+        "persistence": "recommendations, suitability_scores",
+        "apis": [
+          {
+            "path": "/api/v1/recommend",
+            "method": "POST",
+            "request": {"customerId": "C001", "riskProfile": "moderate", "goals": ["protection", "savings"]},
+            "response": {"recommendations": [{"product": "Term Life", "score": 0.85, "reasons": ["Age appropriate", "Risk match"]}]}
+          }
+        ],
+        "awsServices": ["SageMaker", "Bedrock", "Lambda"]
+      },
+      "analyticsDashboard": {
+        "responsibilities": ["Performance tracking", "Skill progression", "Cohort analysis"],
+        "inputs": ["Performance data", "Simulation results", "Certification scores"],
+        "outputs": ["Dashboards", "Reports", "Insights"],
+        "events": ["dashboard.updated", "insight.generated"],
+        "persistence": "analytics_data, performance_metrics",
+        "apis": [
+          {
+            "path": "/api/v1/analytics/dashboard",
+            "method": "GET",
+            "request": {"rmId": "RM001", "period": "30d"},
+            "response": {"skillProgress": 0.75, "simulationCount": 12, "certificationStatus": "in-progress"}
+          }
+        ],
+        "awsServices": ["QuickSight", "DynamoDB", "Lambda"]
+      },
+      "gamificationEngine": {
+        "responsibilities": ["XP tracking", "Leaderboards", "Achievement system"],
+        "inputs": ["Performance scores", "Completion events", "Peer comparisons"],
+        "outputs": ["XP points", "Badges", "Rankings"],
+        "events": ["xp.earned", "badge.unlocked", "level.up"],
+        "persistence": "gamification_data, achievements",
+        "apis": [
+          {
+            "path": "/api/v1/gamification/xp",
+            "method": "POST",
+            "request": {"rmId": "RM001", "activity": "simulation_complete", "score": 85},
+            "response": {"xpEarned": 50, "totalXp": 1250, "newBadges": ["Simulation Master"]}
+          }
+        ],
+        "awsServices": ["DynamoDB", "EventBridge", "Lambda"]
+      },
+      "certificationEngine": {
+        "responsibilities": ["CPD tracking", "Certification exams", "Compliance validation"],
+        "inputs": ["Learning activities", "Exam responses", "Regulatory requirements"],
+        "outputs": ["Certificates", "CPD credits", "Compliance status"],
+        "events": ["exam.completed", "certificate.issued", "cpd.updated"],
+        "persistence": "certifications, cpd_records",
+        "apis": [
+          {
+            "path": "/api/v1/certification/exam",
+            "method": "POST",
+            "request": {"rmId": "RM001", "examType": "protection", "responses": [...]},
+            "response": {"score": 88, "passed": true, "certificateId": "CERT001", "cpdCredits": 10}
+          }
+        ],
+        "awsServices": ["Lambda", "DynamoDB", "S3"]
+      }
+    }
+  },
+  "uikit": {
+    "typography": {
+      "fontFamily": "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
+      "sizes": {
+        "h1": "32px",
+        "h2": "24px",
+        "h3": "20px",
+        "body": "16px",
+        "caption": "14px"
+      },
+      "lineHeight": "1.5"
+    },
+    "colors": {
+      "primary": "#003366",
+      "accent": "#E60000",
+      "white": "#FFFFFF",
+      "neutrals": ["#F8F9FA", "#E9ECEF", "#DEE2E6", "#CED4DA", "#6C757D", "#495057"]
+    },
+    "components": {
+      "buttons": {
+        "primary": {
+          "backgroundColor": "#003366",
+          "color": "#FFFFFF",
+          "padding": "12px 24px",
+          "borderRadius": "8px",
+          "fontSize": "16px",
+          "fontWeight": "600"
+        },
+        "secondary": {
+          "backgroundColor": "transparent",
+          "color": "#003366",
+          "border": "2px solid #003366",
+          "padding": "12px 24px",
+          "borderRadius": "8px"
+        },
+        "tertiary": {
+          "backgroundColor": "transparent",
+          "color": "#003366",
+          "textDecoration": "underline",
+          "padding": "8px 16px"
+        }
+      },
+      "cards": {
+        "simulationCard": {
+          "backgroundColor": "#FFFFFF",
+          "border": "1px solid #DEE2E6",
+          "borderRadius": "12px",
+          "padding": "24px",
+          "shadow": "0 4px 6px rgba(0,0,0,0.1)",
+          "fields": ["title", "difficulty", "duration", "completionRate", "startButton"]
+        },
+        "scorecard": {
+          "backgroundColor": "#F8F9FA",
+          "borderLeft": "4px solid #003366",
+          "padding": "16px",
+          "fields": ["metric", "value", "trend", "benchmark"]
+        }
+      },
+      "forms": {
+        "input": {
+          "border": "1px solid #CED4DA",
+          "borderRadius": "6px",
+          "padding": "12px 16px",
+          "fontSize": "16px",
+          "focusBorder": "#003366"
+        },
+        "checkbox": {
+          "accentColor": "#003366",
+          "size": "20px"
+        }
+      }
+    }
+  },
+  "uxFlow": [
+    {
+      "step": "Onboard",
+      "screen": "Welcome Dashboard",
+      "description": "Header: Welcome [RM Name], Left: Profile setup form, Center: Skill assessment CTA, Right: Navi mascot introduction",
+      "dataSource": "Cognito, Employee DB"
+    },
+    {
+      "step": "Learn",
+      "screen": "Knowledge Hub",
+      "description": "Header: Product Library, Left: Category navigation, Center: Content cards grid, Right: Recent updates widget",
+      "dataSource": "Knowledge Base, Regulatory API"
+    },
+    {
+      "step": "Simulate",
+      "screen": "Simulation Lab",
+      "description": "Header: Practice Scenarios, Left: Scenario filters, Center: Customer persona + chat interface, Right: Performance tracker",
+      "dataSource": "Simulation Engine, Customer Personas"
+    },
+    {
+      "step": "Recommend",
+      "screen": "Recommendation Assistant",
+      "description": "Header: Product Recommendations, Left: Customer profile input, Center: Ranked product cards, Right: Suitability explanations",
+      "dataSource": "ML Models, Product Catalog"
+    },
+    {
+      "step": "Measure",
+      "screen": "Analytics Dashboard",
+      "description": "Header: Performance Overview, Left: Skill progression chart, Center: Heatmap widgets, Right: Peer comparison",
+      "dataSource": "Analytics DB, Performance Metrics"
+    },
+    {
+      "step": "Motivate",
+      "screen": "Gamification Hub",
+      "description": "Header: Your Progress, Left: XP and level display, Center: Achievement gallery, Right: Leaderboard",
+      "dataSource": "Gamification Engine"
+    },
+    {
+      "step": "Certify",
+      "screen": "Certification Center",
+      "description": "Header: Certifications, Left: CPD progress tracker, Center: Available exams, Right: Certificate gallery",
+      "dataSource": "Certification DB, CPD Records"
+    }
+  ],
+  "mascotSpec": {
+    "visual": {
+      "style": "Realistic beaver with professional navy blazer and subtle red scarf accent",
+      "illustration": "Flat design with soft drop shadow",
+      "sizes": ["32px (nav icon)", "64px (toast)", "160px (onboarding)"],
+      "expressions": ["neutral", "encouraging", "congratulatory", "concerned"]
+    },
+    "tone": {
+      "personality": "Encouraging, concise, professional, non-patronizing",
+      "examples": {
+        "encouragement": "Great progress! Ready for the next challenge?",
+        "correction": "Let's review that approach together.",
+        "nudge": "Your simulation streak is at 5 days!",
+        "congratulation": "Excellent work! Certificate earned."
+      }
+    },
+    "behavior": {
+      "triggers": ["onboarding start", "low performance score", "before assessment", "achievement unlock"],
+      "interactions": ["non-intrusive toast", "expandable coach panel", "contextual tips"],
+      "accessibility": "Alt text: 'Navi, your training coach' with text-only alternatives"
+    }
+  },
+  "architecture": {
+    "flow": "RM → Cognito Auth → API Gateway → Lambda Functions → [Bedrock/Transcribe/Rekognition] → SageMaker → RDS/DynamoDB → QuickSight Dashboards",
+    "orchestration": "Step Functions coordinate multi-step simulations, EventBridge handles async events",
+    "services": {
+      "frontend": "CloudFront + S3 (React SPA)",
+      "auth": "Cognito User Pools + Identity Pools",
+      "api": "API Gateway + Lambda (Node.js/Python)",
+      "ai": "Bedrock (Claude), SageMaker (recommendations), Transcribe, Polly, Rekognition",
+      "data": "RDS Aurora (structured), DynamoDB (sessions), OpenSearch (knowledge)",
+      "analytics": "QuickSight + Athena",
+      "storage": "S3 (content, recordings, logs)",
+      "monitoring": "CloudWatch, X-Ray, CloudTrail"
+    },
+    "region": "ap-southeast-1 (Singapore) for data residency compliance",
+    "logging": "CloudTrail → S3 with Object Lock, KMS encryption"
+  },
+  "security": {
+    "dataProcessing": {
+      "webcam": "On-device processing only, embeddings transmitted",
+      "audio": "Local transcription preferred, cloud with consent",
+      "pii": "Field-level encryption, tokenization for customer IDs"
+    },
+    "encryption": {
+      "transit": "TLS 1.3",
+      "rest": "KMS with customer-managed keys",
+      "database": "RDS encryption, DynamoDB encryption at rest"
+    },
+    "access": {
+      "iam": "Least privilege, role-based access",
+      "vpc": "Private subnets for data processing",
+      "waf": "API Gateway protection"
+    },
+    "retention": "1 year default, 7 years for compliance records",
+    "compliance": "Regular security reviews, audit trails, consent management"
+  },
+  "i18n": {
+    "languages": ["Thai (th-TH)", "English (en-US)"],
+    "requirements": "WCAG 2.1 AA compliance, keyboard navigation, screen reader support",
+    "implementation": "React-i18next, separate translation files, RTL not required",
+    "content": "UI labels, error messages, mascot microcopy, help text"
+  },
+  "integration": {
+    "crm": {
+      "pattern": "REST webhooks",
+      "endpoints": ["/api/v1/crm/customer/profile", "/api/v1/crm/coverage/existing"],
+      "auth": "OAuth 2.0 client credentials"
+    },
+    "kyc": {
+      "pattern": "Tokenized customer ID flow",
+      "consent": "Explicit consent capture with audit trail",
+      "data": "Risk profile, financial capacity, investment experience"
+    },
+    "financialPlanning": {
+      "pattern": "Event-driven sync",
+      "events": ["score.updated", "recommendation.generated"],
+      "format": "CloudEvents specification"
+    },
+    "certification": {
+      "pattern": "Webhook notifications",
+      "endpoints": ["/api/v1/certification/cpd/update"],
+      "compliance": "คปภ., ก.ล.ต. integration"
+    }
+  },
+  "deliverables": {
+    "design": {
+      "figma": "RM-Training-Platform-Design-System.fig",
+      "components": ["Navigation", "Cards", "Forms", "Dashboards", "Mascot-Animations"],
+      "storybook": "Components at /storybook/rm-platform"
+    },
+    "development": {
+      "iac": "CDK TypeScript stacks: Auth, API, Data, Analytics",
+      "apis": "OpenAPI 3.0 specifications",
+      "frontend": "React TypeScript with Vite"
+    },
+    "cdkSkeleton": {
+      "auth": "new CognitoUserPool(this, 'RMUserPool', { ... })",
+      "api": "new RestApi(this, 'RMApi', { ... })",
+      "data": "new DatabaseCluster(this, 'RMDatabase', { ... })"
+    }
+  },
+  "acceptance": {
+    "simulation": {
+      "criteria": "System logs >80% of skill checkpoints, produces transcript + score",
+      "test": "Complete protection scenario, verify all interaction points captured"
+    },
+    "recommendation": {
+      "criteria": "Top-1 recommendation has SuitabilityScore >= 0.7 with explainable reasons",
+      "test": "Input customer profile, verify recommendation logic and explanations"
+    },
+    "analytics": {
+      "criteria": "Heatmap shows correct cohort percentile, suggests next 3 scenarios",
+      "test": "Generate performance data, verify dashboard accuracy and predictions"
+    },
+    "gamification": {
+      "criteria": "XP accrual and leaderboard update under 3 seconds",
+      "test": "Complete activity, measure response time for point updates"
+    },
+    "certification": {
+      "criteria": "CPD credits calculated correctly, certificates generated",
+      "test": "Complete exam, verify scoring and certificate issuance"
+    }
+  },
+  "prompts": {
+    "aiPersona": {
+      "template": "You are a [age] year old [occupation] customer interested in [financial_goal]. Your risk tolerance is [risk_level]. Respond naturally to insurance questions, showing [personality_traits]. Keep responses under 50 words.",
+      "example": "You are a 35 year old marketing manager interested in family protection. Your risk tolerance is moderate. Respond naturally to insurance questions, showing concern for family security but budget consciousness. Keep responses under 50 words."
+    },
+    "explainableRecommendation": {
+      "template": "Analyze customer profile and recommend top 3 products. Output format: {\"rankedOptions\": [{\"product\": \"\", \"score\": 0.0, \"reasons\": []}], \"exclusions\": [{\"product\": \"\", \"reason\": \"\"}]}",
+      "requirements": "Include suitability score (0-1), minimum 2 reasons per recommendation, explain why products were excluded"
+    },
+    "mascotMicrocopy": {
+      "template": "Input: user_progress={\"level\": \"\", \"recent_score\": 0, \"streak\": 0, \"mood\": \"\"}. Output: encouraging message (10-15 words) matching professional tone.",
+      "examples": {
+        "low_score": "Every expert was once a beginner. Let's try again!",
+        "high_streak": "Impressive consistency! You're building real expertise.",
+        "before_exam": "You've prepared well. Trust your knowledge and skills."
+      }
+    }
+  },
+  "slides": [
+    "Onboard: Role-based skill assessment and personalized learning paths",
+    "Learn: Interactive knowledge hub with regulatory compliance integration",
+    "Simulate: AI-powered customer scenarios with real-time performance feedback",
+    "Recommend: Explainable product recommendations with suitability scoring",
+    "Measure: Advanced analytics dashboard with peer benchmarking insights",
+    "Motivate: Gamification engine with XP, badges, and leaderboards"
+  ]
+}

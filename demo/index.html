@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RM Training Platform - UOB</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="logo">UOB</div>
+                <span class="platform-name">RM Training Platform</span>
+            </div>
+            <div class="nav-user">
+                <div class="navi-mascot" id="naviMascot">🦫</div>
+                <span class="user-name">Phaprae EiEi</span>
+                <div class="user-avatar">SC</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="nav-item active" data-section="dashboard">
+                <span class="nav-icon">📊</span>
+                <span>Dashboard</span>
+            </div>
+            <div class="nav-item" data-section="knowledge">
+                <span class="nav-icon">📚</span>
+                <span>Knowledge Hub</span>
+            </div>
+            <div class="nav-item" data-section="simulation">
+                <span class="nav-icon">🎭</span>
+                <span>Simulation Lab</span>
+            </div>
+            <div class="nav-item" data-section="recommend">
+                <span class="nav-icon">🎯</span>
+                <span>Recommendations</span>
+            </div>
+            <div class="nav-item" data-section="analytics">
+                <span class="nav-icon">📈</span>
+                <span>Analytics</span>
+            </div>
+            <div class="nav-item" data-section="gamification">
+                <span class="nav-icon">🏆</span>
+                <span>Achievements</span>
+            </div>
+        </aside>
+
+        <!-- Content Area -->
+        <div class="content-area">
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="section active">
+                <div class="section-header">
+                    <h1>Welcome back, Phaprae!</h1>
+                    <p>Your learning journey continues</p>
+                </div>
+                
+                <div class="dashboard-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">85%</div>
+                        <div class="stat-label">Skill Progress</div>
+                        <div class="stat-trend positive">+12% this month</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">24</div>
+                        <div class="stat-label">Simulations</div>
+                        <div class="stat-trend positive">8 this week</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">1,250</div>
+                        <div class="stat-label">XP Points</div>
+                        <div class="stat-trend positive">Level 5</div>
+                    </div>
+                </div>
+
+                <div class="quick-actions">
+                    <h2>Quick Actions</h2>
+                    <div class="action-grid">
+                        <div class="action-card" onclick="switchSection('simulation')">
+                            <div class="action-icon">🎭</div>
+                            <h3>Start Simulation</h3>
+                            <p>Practice with AI customers</p>
+                        </div>
+                        <div class="action-card" onclick="switchSection('knowledge')">
+                            <div class="action-icon">📚</div>
+                            <h3>Study Materials</h3>
+                            <p>Latest product updates</p>
+                        </div>
+                        <div class="action-card" onclick="switchSection('recommend')">
+                            <div class="action-icon">🎯</div>
+                            <h3>Get Recommendations</h3>
+                            <p>AI-powered suggestions</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Simulation Section -->
+            <section id="simulation" class="section">
+                <div class="section-header">
+                    <h1>Simulation Lab</h1>
+                    <p>Practice with realistic customer scenarios</p>
+                </div>
+
+                <div class="simulation-container">
+                    <div class="scenario-selector">
+                        <h3>Choose Scenario</h3>
+                        <div class="scenario-card selected">
+                            <div class="scenario-header">
+                                <h4>Young Professional - Protection</h4>
+                                <span class="difficulty medium">Medium</span>
+                            </div>
+                            <p>28-year-old marketing manager seeking family protection</p>
+                            <div class="scenario-stats">
+                                <span>⏱️ 15 min</span>
+                                <span>🎯 Suitability focus</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="simulation-chat">
+                        <div class="customer-profile">
+                            <div class="customer-avatar">👨‍💼</div>
+                            <div class="customer-info">
+                                <h4>Alex Wong</h4>
+                                <p>Age: 28 • Income: $80K • Risk: Moderate</p>
+                            </div>
+                        </div>
+
+                        <div class="chat-messages">
+                            <div class="message customer">
+                                <div class="message-content">
+                                    Hi, I'm looking for some insurance coverage. I just got married and want to protect my family.
+                                </div>
+                            </div>
+                            <div class="message rm">
+                                <div class="message-content">
+                                    Congratulations on your marriage! I'd be happy to help you find the right protection. Can you tell me about your current financial situation?
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chat-input">
+                            <input type="text" placeholder="Type your response..." id="chatInput">
+                            <button class="btn-primary" onclick="sendMessage()">Send</button>
+                        </div>
+                    </div>
+
+                    <div class="simulation-sidebar">
+                        <div class="performance-tracker">
+                            <h4>Performance</h4>
+                            <div class="skill-meter">
+                                <div class="skill-item">
+                                    <span>Rapport Building</span>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <span>Needs Analysis</span>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 70%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Knowledge Hub Section -->
+            <section id="knowledge" class="section">
+                <div class="section-header">
+                    <h1>Knowledge Hub</h1>
+                    <p>Product knowledge and regulatory updates</p>
+                </div>
+
+                <div class="knowledge-container">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Search products, regulations, or best practices..." id="knowledgeSearch">
+                        <button class="btn-primary" onclick="searchKnowledge()">Search</button>
+                    </div>
+
+                    <div class="knowledge-grid">
+                        <div class="knowledge-card featured">
+                            <div class="card-header">
+                                <h3>Protection Products</h3>
+                                <span class="update-badge">Updated</span>
+                            </div>
+                            <p>Term Life, Whole Life, and Critical Illness coverage options</p>
+                            <div class="card-stats">
+                                <span>📚 12 articles</span>
+                                <span>⏱️ 5 min read</span>
+                            </div>
+                        </div>
+
+                        <div class="knowledge-card">
+                            <div class="card-header">
+                                <h3>Investment Products</h3>
+                                <span class="compliance-badge">คปภ.</span>
+                            </div>
+                            <p>ULIP and Investment-linked insurance guidelines</p>
+                            <div class="card-stats">
+                                <span>📚 8 articles</span>
+                                <span>⏱️ 7 min read</span>
+                            </div>
+                        </div>
+
+                        <div class="knowledge-card">
+                            <div class="card-header">
+                                <h3>Suitability Rules</h3>
+                                <span class="compliance-badge">ก.ล.ต.</span>
+                            </div>
+                            <p>Customer suitability assessment requirements</p>
+                            <div class="card-stats">
+                                <span>📚 6 articles</span>
+                                <span>⏱️ 3 min read</span>
+                            </div>
+                        </div>
+
+                        <div class="knowledge-card">
+                            <div class="card-header">
+                                <h3>Best Practices</h3>
+                                <span class="practice-badge">Tips</span>
+                            </div>
+                            <p>Proven techniques for customer engagement</p>
+                            <div class="card-stats">
+                                <span>📚 15 articles</span>
+                                <span>⏱️ 4 min read</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recommendations Section -->
+            <section id="recommend" class="section">
+                <div class="section-header">
+                    <h1>AI Recommendations</h1>
+                    <p>Get explainable product suggestions</p>
+                </div>
+
+                <div class="recommendation-container">
+                    <div class="customer-input">
+                        <h3>Customer Profile</h3>
+                        <div class="input-grid">
+                            <input type="number" placeholder="Age" value="35">
+                            <select>
+                                <option>Moderate Risk</option>
+                                <option>Conservative</option>
+                                <option>Aggressive</option>
+                            </select>
+                            <input type="text" placeholder="Monthly Income" value="$6,000">
+                            <select>
+                                <option>Family Protection</option>
+                                <option>Wealth Building</option>
+                                <option>Retirement Planning</option>
+                            </select>
+                        </div>
+                        <button class="btn-primary" onclick="generateRecommendations()">Get Recommendations</button>
+                    </div>
+
+                    <div class="recommendations-list">
+                        <div class="recommendation-card best">
+                            <div class="rec-header">
+                                <h4>UOB Term Life Plus</h4>
+                                <div class="suitability-score">92%</div>
+                            </div>
+                            <div class="rec-reasons">
+                                <div class="reason">✓ Age-appropriate premium structure</div>
+                                <div class="reason">✓ Matches moderate risk profile</div>
+                                <div class="reason">✓ Covers family protection goal</div>
+                            </div>
+                            <div class="rec-details">
+                                <span>Coverage: $500K</span>
+                                <span>Premium: $45/month</span>
+                            </div>
+                        </div>
+
+                        <div class="recommendation-card">
+                            <div class="rec-header">
+                                <h4>UOB Whole Life Savings</h4>
+                                <div class="suitability-score">78%</div>
+                            </div>
+                            <div class="rec-reasons">
+                                <div class="reason">✓ Builds cash value over time</div>
+                                <div class="reason">⚠️ Higher premium commitment</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Analytics Section -->
+            <section id="analytics" class="section">
+                <div class="section-header">
+                    <h1>Analytics Dashboard</h1>
+                    <p>Performance insights and skill progression</p>
+                </div>
+
+                <div class="analytics-container">
+                    <div class="analytics-grid">
+                        <div class="chart-card">
+                            <h3>Skill Progression</h3>
+                            <div class="skill-chart">
+                                <div class="skill-bar">
+                                    <span>Protection Products</span>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 85%"></div>
+                                    </div>
+                                    <span class="score">85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <span>Investment Products</span>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 72%"></div>
+                                    </div>
+                                    <span class="score">72%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <span>Customer Rapport</span>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 90%"></div>
+                                    </div>
+                                    <span class="score">90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <span>Compliance</span>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 95%"></div>
+                                    </div>
+                                    <span class="score">95%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="heatmap-card">
+                            <h3>Performance Heatmap</h3>
+                            <div class="heatmap-grid">
+                                <div class="heatmap-cell high">Mon</div>
+                                <div class="heatmap-cell medium">Tue</div>
+                                <div class="heatmap-cell high">Wed</div>
+                                <div class="heatmap-cell low">Thu</div>
+                                <div class="heatmap-cell high">Fri</div>
+                                <div class="heatmap-cell medium">Sat</div>
+                                <div class="heatmap-cell low">Sun</div>
+                            </div>
+                            <div class="heatmap-legend">
+                                <span class="legend-item"><div class="legend-color high"></div>High</span>
+                                <span class="legend-item"><div class="legend-color medium"></div>Medium</span>
+                                <span class="legend-item"><div class="legend-color low"></div>Low</span>
+                            </div>
+                        </div>
+
+                        <div class="peer-comparison">
+                            <h3>Peer Comparison</h3>
+                            <div class="comparison-item">
+                                <span>Your Rank</span>
+                                <div class="rank-badge">#3</div>
+                                <span>of 25 RMs</span>
+                            </div>
+                            <div class="percentile">
+                                <span>88th Percentile</span>
+                                <div class="percentile-bar">
+                                    <div class="percentile-fill" style="width: 88%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gamification Section -->
+            <section id="gamification" class="section">
+                <div class="section-header">
+                    <h1>Achievements & Progress</h1>
+                    <p>Your learning journey and rewards</p>
+                </div>
+
+                <div class="gamification-container">
+                    <div class="level-progress">
+                        <div class="level-info">
+                            <h2>Level 5 - Expert Trainee</h2>
+                            <p>1,250 / 1,500 XP to Level 6</p>
+                        </div>
+                        <div class="xp-bar">
+                            <div class="xp-fill" style="width: 83%"></div>
+                        </div>
+                    </div>
+
+                    <div class="achievements-grid">
+                        <div class="achievement-card unlocked">
+                            <div class="achievement-icon">🎯</div>
+                            <h4>First Simulation</h4>
+                            <p>Complete your first customer simulation</p>
+                            <span class="achievement-date">Unlocked 2 days ago</span>
+                        </div>
+
+                        <div class="achievement-card unlocked">
+                            <div class="achievement-icon">🔥</div>
+                            <h4>5-Day Streak</h4>
+                            <p>Practice for 5 consecutive days</p>
+                            <span class="achievement-date">Unlocked today</span>
+                        </div>
+
+                        <div class="achievement-card unlocked">
+                            <div class="achievement-icon">📚</div>
+                            <h4>Knowledge Seeker</h4>
+                            <p>Read 10 knowledge articles</p>
+                            <span class="achievement-date">Unlocked yesterday</span>
+                        </div>
+
+                        <div class="achievement-card locked">
+                            <div class="achievement-icon">🏆</div>
+                            <h4>Simulation Master</h4>
+                            <p>Complete 25 simulations with 80%+ score</p>
+                            <span class="achievement-progress">18/25 completed</span>
+                        </div>
+
+                        <div class="achievement-card locked">
+                            <div class="achievement-icon">⭐</div>
+                            <h4>Top Performer</h4>
+                            <p>Reach top 10% in monthly rankings</p>
+                            <span class="achievement-progress">Currently #3</span>
+                        </div>
+
+                        <div class="achievement-card locked">
+                            <div class="achievement-icon">🎓</div>
+                            <h4>Certified Expert</h4>
+                            <p>Pass all certification exams</p>
+                            <span class="achievement-progress">2/4 completed</span>
+                        </div>
+                    </div>
+
+                    <div class="leaderboard">
+                        <h3>Monthly Leaderboard</h3>
+                        <div class="leaderboard-list">
+                            <div class="leaderboard-item rank-1">
+                                <span class="rank">#1</span>
+                                <span class="name">Michael Wong</span>
+                                <span class="score">1,850 XP</span>
+                            </div>
+                            <div class="leaderboard-item rank-2">
+                                <span class="rank">#2</span>
+                                <span class="name">Lisa Chen</span>
+                                <span class="score">1,680 XP</span>
+                            </div>
+                            <div class="leaderboard-item rank-3 current-user">
+                                <span class="rank">#3</span>
+                                <span class="name">Phaprae EiEi (You)</span>
+                                <span class="score">1,250 XP</span>
+                            </div>
+                            <div class="leaderboard-item">
+                                <span class="rank">#4</span>
+                                <span class="name">David Tan</span>
+                                <span class="score">1,120 XP</span>
+                            </div>
+                            <div class="leaderboard-item">
+                                <span class="rank">#5</span>
+                                <span class="name">Amy Liu</span>
+                                <span class="score">980 XP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Navi Mascot Toast -->
+    <div class="navi-toast" id="naviToast">
+        <div class="navi-avatar">🦫</div>
+        <div class="navi-message">Great progress! Ready for the next challenge?</div>
+        <button class="toast-close" onclick="closeToast()">×</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
