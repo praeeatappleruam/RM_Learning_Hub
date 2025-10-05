@@ -42,6 +42,14 @@ body {
     box-shadow: var(--shadow);
 }
 
+.nav-icon {
+  width: 20px; 
+  height: 20px;
+  display: inline-block;
+  object-fit: contain;     /* keep aspect ratio */
+  vertical-align: middle;
+}
+
 .nav-container {
     display: flex;
     justify-content: space-between;
